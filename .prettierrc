@@ -1,0 +1,19 @@
+{
+    "useTabs": false,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "braceStyle": "standard",
+    "parserOptions": {
+        "parser": "babel"
+    },
+    "commaWhitespace": true,
+    "operatorWhitespace": true,
+    "arrowParens": "always",
+    "quoteStyle": "double",
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "all",
+    "requireFileHeader": false,
+    "insertDescription": false
+}
