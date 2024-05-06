@@ -30,8 +30,6 @@ export default function PokeCard({ url, name }) {
     return PokeData;
   }
 
-  console.log(pokemon);
-
   const bg = `bg-${pokemon?.type}`;
   const border = `border-${pokemon?.type}`;
   const text = `text-${pokemon?.type}`;
