@@ -8,6 +8,7 @@ import { GreaterThan } from "../../assets/GreaterThan.jsx";
 import { Balance } from "../../assets/Balance.jsx";
 import { Vector } from "../../assets/Vector.jsx";
 import Type from "../../components/Type.jsx";
+import BaseStat from "../../components/BaseStat.jsx";
 
 const DetailPage = () => {
   const [pokemon, setPokemon] = useState();
@@ -48,6 +49,7 @@ const DetailPage = () => {
           types: types.map(type => type.type.name),
           weight: weight / 10,
           height: height / 10,
+          stats: formatPokemonStats(stats),
           previous: nextAndPreviousPokemon.previous,
           next: nextAndPreviousPokemon.next,
           abilities: formatPokemonAbilities(abilities),
@@ -75,11 +77,11 @@ const DetailPage = () => {
                                 statSPD,
                               ]) => [
     { name: "Hit Points", baseState: statHP.base_stat },
-    { name: "Attack", baseState: statATK.base_state },
-    { name: "Defense", baseState: statDEP.base_state },
-    { name: "Special Attack", baseState: statSATK.base_state },
-    { name: "Special Defense", baseState: statSDEP.base_state },
-    { name: "Speed", baseState: statSPD.base_state },
+    { name: "Attack", baseState: statATK.base_stat },
+    { name: "Defense", baseState: statDEP.base_stat },
+    { name: "Special Attack", baseState: statSATK.base_stat },
+    { name: "Special Defense", baseState: statSDEP.base_stat },
+    { name: "Speed", baseState: statSPD.base_stat },
   ];
 
 
@@ -209,7 +211,18 @@ const DetailPage = () => {
             기본 능력치
           </h2>
           <div className="w-full">
-            {/* Stats */}
+            <table>
+              <tbody>
+              {pokemon.stats.map((stat) => (
+                <BaseStat
+                  key={stat.name}
+                  valueStat={stat.baseState}
+                  nameStat={stat.name}
+                  type={pokemon.types[0]}
+                />
+              ))}
+              </tbody>
+            </table>
           </div>
 
           {pokemon.DamageRelations && (
