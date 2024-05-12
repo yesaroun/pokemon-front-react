@@ -9,11 +9,13 @@ import { Balance } from "../../assets/Balance.jsx";
 import { Vector } from "../../assets/Vector.jsx";
 import Type from "../../components/Type.jsx";
 import BaseStat from "../../components/BaseStat.jsx";
-import DamageRelations from "../../components/DamageRelations.jsx";
+import DamageModal from "../../components/DamageModal.jsx";
 
 const DetailPage = () => {
   const [pokemon, setPokemon] = useState();
   const [isLoading, setIsLoading] = useState(false);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const params = useParams();
   const pokemonId = params.id;
@@ -169,6 +171,7 @@ const DetailPage = () => {
               loading="lazy"
               alt={pokemon.name.replaceAll("-", " ")}
               className={`object-contain h-full`}
+              onClick={() => setIsModalOpen(true)}
             />
           </div>
         </section>
@@ -225,18 +228,12 @@ const DetailPage = () => {
               </tbody>
             </table>
           </div>
-
-          {pokemon.DamageRelations && (
-            <div className="w-10/12">
-              <h2 className={`capitalize font-semibold text-base ${text} text-center`}>
-                <DamageRelations
-                  damages={pokemon.DamageRelations}
-                />
-              </h2>
-            </div>
-          )}
         </section>
       </div>
+      {isModalOpen ?
+        <DamageModal damages={pokemon.DamageRelations} setIsModalOpen={setIsModalOpen} />
+        : null
+      }
     </article>
   )
     ;
