@@ -9,6 +9,7 @@ import { Balance } from "../../assets/Balance.jsx";
 import { Vector } from "../../assets/Vector.jsx";
 import Type from "../../components/Type.jsx";
 import BaseStat from "../../components/BaseStat.jsx";
+import DamageRelations from "../../components/DamageRelations.jsx";
 
 const DetailPage = () => {
   const [pokemon, setPokemon] = useState();
@@ -228,9 +229,10 @@ const DetailPage = () => {
           {pokemon.DamageRelations && (
             <div className="w-10/12">
               <h2 className={`capitalize font-semibold text-base ${text} text-center`}>
-                Type effectiveness
+                <DamageRelations
+                  damages={pokemon.DamageRelations}
+                />
               </h2>
-              {/* Damage */}
             </div>
           )}
         </section>
