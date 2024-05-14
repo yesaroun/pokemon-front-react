@@ -1,8 +1,10 @@
 import DamageRelations from "./DamageRelations.jsx";
 import { useRef } from "react";
+import useOnClickOutside from "../hooks/useOnClickOutside.jsx";
 
 const DamageModal = ({ damages, setIsModalOpen }) => {
   const ref = useRef();
+  useOnClickOutside(ref, () => setIsModalOpen(false));
 
   return (
     <div className="flex items-center justify-center z-40 fixed left-0 bottom-0 w-full h-full bg-gray-800">
