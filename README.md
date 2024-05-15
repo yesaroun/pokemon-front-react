@@ -21,5 +21,7 @@
 - 데이터를 재가공해서 데미지 관계 구현
 - 데미지 모달 구현
   - 모달 창 외부 클릭 시 모달 닫게 만드는 Custom Hooks(useOnClickOutside) 구현
+- 스프라이트와 설명 api로 get해서 보여주기
+
 
 
