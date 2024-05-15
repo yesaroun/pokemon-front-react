@@ -3,6 +3,7 @@
 - Vite
 - React
 - TailWindCSS
+- Firebase
 
 
 ## 구현 기능
