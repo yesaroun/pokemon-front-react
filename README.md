@@ -23,5 +23,7 @@
   - 모달 창 외부 클릭 시 모달 닫게 만드는 Custom Hooks(useOnClickOutside) 구현
 - 스프라이트와 설명 api로 get해서 보여주기
 
-
+### 로그인
+- firebase 사용해서 로그인 구현
+- 
 
