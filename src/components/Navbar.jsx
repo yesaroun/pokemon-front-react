@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import app from "../firebase.js";
 
 const NavWrapper = styled.nav`
   position: fixed;
@@ -44,7 +47,24 @@ const Login = styled.a`
 
 const Navbar = () => {
 
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
   const [show, setShow] = useState(false);
+
+  const { pathname } = useLocation();
+
+  signInWithPopup(auth, provider);
+
+  const handleAuth = () => {
+    signInWithPopup(auth, provider)
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
 
   const listener = () => {
     if (window.scrollY > 50) {
@@ -71,11 +91,11 @@ const Navbar = () => {
           onClick={() => (window.location.href = "/")}
         />
       </Logo>
-      {/*{pathname === "/login" ? (*/}
-      {/*    <Login onClick={handleAuth}>Login</Login>*/}
-      {/*  ) :*/}
-      {/*  <></>*/}
-      {/*}*/}
+      {pathname === "/login" ? (
+          <Login onClick={handleAuth}>Login</Login>
+        ) :
+        <></>
+      }
     </NavWrapper>
   );
 };
