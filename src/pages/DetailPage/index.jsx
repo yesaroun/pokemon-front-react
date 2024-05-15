@@ -22,16 +22,17 @@ const DetailPage = () => {
   const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 
   useEffect(() => {
-    fetchPokemonData();
-  }, []);
+    setIsLoading(true);
+    fetchPokemonData(pokemonId);
+  }, [pokemonId]);
 
   useEffect(() => {
     setIsLoading(true);
     fetchPokemonData(params.id);
   }, [params]);
 
-  async function fetchPokemonData() {
-    const url = `${baseUrl}${pokemonId}`;
+  async function fetchPokemonData(id) {
+    const url = `${baseUrl}${id}`;
     try {
       const { data: pokemonData } = await axios.get(url);
 
