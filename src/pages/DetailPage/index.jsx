@@ -36,7 +36,7 @@ const DetailPage = () => {
       const { data: pokemonData } = await axios.get(url);
 
       if (pokemonData) {
-        const { name, id, types, weight, height, stats, abilities } = pokemonData;
+        const { name, id, types, weight, height, stats, abilities, sprites } = pokemonData;
         const nextAndPreviousPokemon = await getNextAndPreviousPokemon(id);
 
         const DamageRelations = await Promise.all(
@@ -57,6 +57,7 @@ const DetailPage = () => {
           next: nextAndPreviousPokemon.next,
           abilities: formatPokemonAbilities(abilities),
           DamageRelations,
+          sprites: formatPokemonSprites(sprites),
         };
         setPokemon(formattedPokemonData);
         setIsLoading(false);
@@ -66,6 +67,19 @@ const DetailPage = () => {
       setIsLoading(false);
     }
   }
+
+  const formatPokemonSprites = (sprites) => {
+    const newSprites = { ...sprites };
+
+    // 객체의 프로퍼티의 값이 string이 아닌 것은 해당 프로퍼티 다 지우기
+    Object.keys(newSprites).forEach(key => {
+      if (typeof newSprites[key] !== "string") {
+        delete newSprites[key];
+      }
+    });
+
+    return Object.values(newSprites);
+  };
 
   const formatPokemonAbilities = abilities =>
     abilities.filter((_, index) => index <= 1)
@@ -227,6 +241,11 @@ const DetailPage = () => {
               ))}
               </tbody>
             </table>
+          </div>
+          <div className="flex my-8 flex-wrap justify-center">
+            {pokemon.sprites.map((spriteUrl) => (
+              <img src={spriteUrl} alt="sprite" key={spriteUrl} />
+            ))}
           </div>
         </section>
       </div>
