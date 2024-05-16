@@ -1,5 +1,5 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import MainPage from "./pages/MainPage/index.jsx";
+import MainPage from "./pages/MainPage/index.tsx";
 import DetailPage from "./pages/DetailPage/index.jsx";
 import LoginPage from "./pages/LoginPage/index.jsx";
 import Navbar from "./components/Navbar.jsx";
