@@ -26,7 +26,7 @@ export default function Autocomplete({ allPokemons, setDisplayPokemons }: AutoCo
    * 검색하는 것에 정확히 일치하는 포켓몬 이름이 있으면 autocomplete 없애는 함수
    * @param input - 검색 입력 값
    */
-  const checkEqualName = (input) => {
+  const checkEqualName = (input: string) => {
     const filteredArray = filterNames(input);
     return filteredArray[0]?.name === input ? [] : filteredArray;
   };
