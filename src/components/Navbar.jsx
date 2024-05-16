@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import app from "../firebase.js";
 
 const NavWrapper = styled.nav`
@@ -53,6 +53,21 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
 
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate("/login");
+      } else if (user && pathname === "/login") {
+        navigate("/");
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [pathname]);
 
   signInWithPopup(auth, provider);
 
