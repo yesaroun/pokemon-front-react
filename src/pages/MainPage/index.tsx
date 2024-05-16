@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PokeCard from "../../components/PokeCard.jsx";
-import Autocomplete from "../../components/AutoComplete.jsx";
+import Autocomplete from "../../components/AutoComplete.js";
 import { PokemonData, PokemonNameAndUrl } from "../../types/PokemonData";
 
 function MainPage() {
