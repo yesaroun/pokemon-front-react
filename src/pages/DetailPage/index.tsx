@@ -9,7 +9,7 @@ import { Balance } from "../../assets/Balance.js";
 import { Vector } from "../../assets/Vector.js";
 import Type from "../../components/Type.js";
 import BaseStat from "../../components/BaseStat.js";
-import DamageModal from "../../components/DamageModal.jsx";
+import DamageModal from "../../components/DamageModal.js";
 import { FormattedPokemonData } from "../../types/FormattedPokemonData";
 import { Ability, PokemonDetail, Sprites, Stat } from "../../types/PokemonDetail";
 import { DamageRelationOfPokemonType } from "../../types/DamageRelationOfPokemonTypes";
