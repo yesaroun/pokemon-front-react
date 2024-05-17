@@ -1,12 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Loading } from "../../assets/Loading.jsx";
-import { LessThan } from "../../assets/LessThan.jsx";
-import { ArrowLeft } from "../../assets/ArrowLeft.jsx";
-import { GreaterThan } from "../../assets/GreaterThan.jsx";
-import { Balance } from "../../assets/Balance.jsx";
-import { Vector } from "../../assets/Vector.jsx";
+import { Loading } from "../../assets/Loading.js";
+import { LessThan } from "../../assets/LessThan.js";
+import { ArrowLeft } from "../../assets/ArrowLeft.js";
+import { GreaterThan } from "../../assets/GreaterThan.js";
+import { Balance } from "../../assets/Balance.js";
+import { Vector } from "../../assets/Vector.js";
 import Type from "../../components/Type.jsx";
 import BaseStat from "../../components/BaseStat.jsx";
 import DamageModal from "../../components/DamageModal.jsx";
