@@ -1,4 +1,4 @@
-const Type = ({ type, damageValue }) => {
+const Type = ({ type, damageValue }: { type: string, damageValue: string | null }) => {
   const bg = `bg-${type}`;
 
   return (

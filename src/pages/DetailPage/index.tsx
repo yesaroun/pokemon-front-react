@@ -7,8 +7,8 @@ import { ArrowLeft } from "../../assets/ArrowLeft.js";
 import { GreaterThan } from "../../assets/GreaterThan.js";
 import { Balance } from "../../assets/Balance.js";
 import { Vector } from "../../assets/Vector.js";
-import Type from "../../components/Type.jsx";
-import BaseStat from "../../components/BaseStat.jsx";
+import Type from "../../components/Type.js";
+import BaseStat from "../../components/BaseStat.js";
 import DamageModal from "../../components/DamageModal.jsx";
 import { FormattedPokemonData } from "../../types/FormattedPokemonData";
 import { Ability, PokemonDetail, Sprites, Stat } from "../../types/PokemonDetail";
@@ -230,7 +230,7 @@ const DetailPage = () => {
             <div className="flex items-center justify-center gap-4">
               {/* 포켓몬 타입 */}
               {pokemon.types.map((type) => (
-                <Type key={type} type={type} />
+                <Type key={type} type={type} damageValue={null} />
               ))}
             </div>
 

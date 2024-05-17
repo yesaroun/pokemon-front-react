@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Type from "./Type.jsx";
+import Type from "./Type.tsx";
 
 const DamageRelations = ({ damages }) => {
 

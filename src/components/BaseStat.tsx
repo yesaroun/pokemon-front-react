@@ -1,14 +1,22 @@
 import { useEffect, useRef } from "react";
 
-const BaseStat = ({ type, nameStat, valueStat }) => {
+interface BaseStatProps {
+  valueStat: number;
+  nameStat: string;
+  type: string;
+}
+
+const BaseStat = ({ type, nameStat, valueStat }: BaseStatProps) => {
   const bg = `bg-${type}`;
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const setValuesSet = ref.current;
     const calc = valueStat * (100 / 255);
-    setValuesSet.style.width = calc + "%";
+    if (setValuesSet) {
+      setValuesSet.style.width = calc + "%";
+    }
   }, []);
 
   return (
