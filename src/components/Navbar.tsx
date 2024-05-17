@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, User } from "firebase/auth";
 import app from "../firebase";
+import storage from "../utils/storage";
 
 const NavWrapper = styled.nav<{ show: boolean }>`
   position: fixed;
@@ -83,9 +84,7 @@ const UserImg = styled.img`
   height: 100%;
 `;
 
-const userDataFromStorage = localStorage.getItem("userData");
-
-const initialUserData = userDataFromStorage ? JSON.parse(userDataFromStorage) : null;
+const initialUserData = storage.get<User>("userData");
 
 const Navbar = () => {
 
@@ -118,7 +117,7 @@ const Navbar = () => {
     signInWithPopup(auth, provider)
       .then(result => {
         setUserData(result.user);
-        localStorage.setItem("userData", JSON.stringify(result.user));
+        storage.set("userData", result.user);
       })
       .catch(error => {
         console.error(error);
@@ -143,6 +142,7 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     signOut(auth).then(() => {
+      storage.remove("userData");
       setUserData(null);
       navigate("/");
     })
