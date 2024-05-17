@@ -18,6 +18,10 @@
   - 검색 자동완성 기능 구현
 - 스크롤 시 NavBar 색 변경
 
+![img.png](./imgs/img.png)
+![img_1.png](./imgs/img_1.png)
+![img_2.png](./imgs/img_2.png)
+
 ### 포켓몬 상세 페이지
 - 상세 정보 보여주기
 - 데이터를 재가공해서 데미지 관계 구현
@@ -25,8 +29,13 @@
   - 모달 창 외부 클릭 시 모달 닫게 만드는 Custom Hooks(useOnClickOutside) 구현
 - 스프라이트와 설명 api로 get해서 보여주기
 
+![img_4.png](./imgs/img_4.png)
+![img_5.png](./imgs/img_5.png)
+
 ### 로그인
 - firebase 사용해서 로그인, 로그아웃 구현
 - 로그인된 경우 로그인 페이지 접근 불가
 - local storage 사용해서 사용자 이미 정보 저장
 
+![img_3.png](./imgs/img_3.png)
+![img_6.png](./imgs/img_6.png)
